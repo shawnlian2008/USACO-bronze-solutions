@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	freopen("cowqueue.in", "r", stdin);
+	freopen("cowqueue.out", "w", stdout);
+	int n; cin >> n;
+	vector<pair<int, int>> times(n);
+	for (int i = 0; i < n; i++){
+		int time; cin >> times[i].first >> time;
+		times[i].second = times[i].first + time;
+	}
+
+	sort(times.begin(), times.end());
+	
+	for (int i = 1; i < n; i++){
+		if (times[i].first < times[i - 1].second){
+			int k = times[i - 1].second - times[i].first;
+			times[i].first += k;
+			times[i].second += k;
+		}
+	}
+
+	cout << times[n - 1].second << endl;
+}
