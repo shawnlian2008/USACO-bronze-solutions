@@ -31,9 +31,6 @@ int main() {
 		supported_routes.push_back(i);
 	}
 
-	if (supported_routes.empty()){
-	}
-
 	int minimum = 1000;
 	if (supported_routes.empty()){
 		minimum = -1;
