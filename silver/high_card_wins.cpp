@@ -3,7 +3,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main() { // Tags: greedy
+	// The greedy algorithm here would be to pick out the smallest possible card that can beat Elsie in each match, and if no cards are larger than Elsie's card, then give out the worst/smallest one, since it doesn't matter and we want to get rid of the worst/smallest card.
 	freopen("highcard.in", "r", stdin);
 	freopen("highcard.out", "w", stdout);
 	int n; cin >> n;
