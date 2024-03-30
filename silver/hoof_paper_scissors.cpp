@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main() { // Tags: Prefix sums
     freopen("hps.in", "r", stdin);
     freopen("hps.out", "w", stdout);
     int n; cin >> n;
