@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main() { // Tags: 2d prefix sums
 	freopen("lazy.in", "r", stdin);
 	freopen("lazy.out", "w", stdout);
 	int n, k; cin >> n >> k;
