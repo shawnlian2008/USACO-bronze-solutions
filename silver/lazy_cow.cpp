@@ -5,11 +5,11 @@ int main() {
 	freopen("lazy.in", "r", stdin);
 	freopen("lazy.out", "w", stdout);
 	int n, k; cin >> n >> k;
-	vector<vector<long long>> map(2 * n - 1, vector<long long>(2 * n - 1, 0));
+	vector<vector<long long>> map(2 * n - 1, vector<long long>(2 * n - 1, 0)); // This will be the 2d array that will hold the given field as a easily-processed square
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) { 
-			cin >> map[i + j][n - i + j - 1]; 
+			cin >> map[i + j][n - i + j - 1]; // Read into the correct grid
 		}
 	}
 
@@ -29,7 +29,7 @@ int main() {
 				prefix_sums[max(i - k - 1, 1)][min(j + k, 2 * n - 1)] - 
 				prefix_sums[min(i + k, 2 * n - 1)][max(j - k - 1, 1)] + 
 				prefix_sums[max(i - k - 1, 1)][max(j - k - 1, 1)];
-			ans = max(ans, sums);
+			ans = max(ans, sums); // Run 2d prefix sums and calculate the maximum number of points that can be earnt at each spot (brute force)
 		}
 	}
 
