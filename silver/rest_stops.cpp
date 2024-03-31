@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main() { // Tags: Greedy
+	// Greedy algorithm mentioned below
 	freopen("reststops.in", "r", stdin);
 	freopen("reststops.out", "w", stdout);
 	long long metres, rest_stops, pace_f, pace_b; 
