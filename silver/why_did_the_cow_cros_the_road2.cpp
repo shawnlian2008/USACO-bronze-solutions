@@ -17,7 +17,7 @@ int main() {
 		num_broken[i] = num_broken[i - 1] + broken[i];
 
 	int ans = INT_MAX;
-	for (int i = k; i <= n; i++)
+	for (int i = k; i <= n; i++) // Loop through with sliding window, checking the number that are broken in this window by prefix sums.
 		ans = min(ans, num_broken[i] - num_broken[i - k]);
 
 	cout << ans << endl;
