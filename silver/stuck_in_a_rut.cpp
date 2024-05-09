@@ -40,25 +40,24 @@ int main() {
 			if (east[j].x > north[i].x || north[i].y > east[j].y || stopped[north[i].index] || stopped[east[j].index])
 				continue;
 			
-			// vertical distance between 2 cows
+			// Vertical distance between 2 cows
 			int northDist = east[j].y - north[i].y;
-			// horizontal distance between 2 cows
+			// Horizontal distance between 2 cows
 			int eastDist = north[i].x - east[j].x;
 
-			// if the east one collides first
+			// If the east cow collides first
 			if (northDist < eastDist){
-				stopped[east[j].index] = true; // mark as stopped
-				ans[north[i].index] += ans[east[j].index] + 1; // transitive
-			} else if (eastDist < northDist){ // if north collides first
-				stopped[north[i].index] = true; // mark as stopped
-				ans[east[j].index] += ans[north[i].index] + 1; // transitive
+				stopped[east[j].index] = true; // Mark as stopped
+				ans[north[i].index] += ans[east[j].index] + 1; // Transitive
+			} else if (eastDist < northDist){ // If the north cow collides first
+				stopped[north[i].index] = true; // Mark as stopped
+				ans[east[j].index] += ans[north[i].index] + 1; // Transitive
 			}
-			else continue;
+			else continue; // Continue if they go through the exact same point
 		}
 	}
 
 	// output the answers
-	for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++)
 		cout << ans[i] << endl;
-	}
 }
