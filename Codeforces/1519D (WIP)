@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n; cin >> n;
+	vector<int> a(n), b(n);
+	
+	for (int i = 0; i < n; i++)
+		cin >> a[i];
+
+	for (int i = 0; i < n; i++)
+		cin >> b[i];
+
+	vector<int> prefix_sums(n + 1);
+
+	for (int i = 1; i <= n; i++)
+		prefix_sums[i] += prefix_sums[i - 1] + (a[i - 1] * b[i - 1]);
+
+	for (int i = 1; i <= n; i++)
+		cout << prefix_sums[i] << " ";
+	
+	int ans = prefix_sums[n]; // Sum we have right now that we are trying to beat
+	for (int i = 0; i < n; i++){
+		int left = i - 1, right = i + 1;
+		int curr = a[i] * b[i];
+		while (left >= 0 && right < n){ // A subarray with an odd length will have a middle number
+			curr += a[left] * b[right];
+			curr += a[right] * b[left];
+			// curr is reversed array, prefix_sums[left] is the part of the array before the smallest index 
+			//	of the reversed subarray, and (prefix_sums[n] - prefix_sums[right - 1]) is the part of the array after the smallest index
+			ans = max(ans, curr + prefix_sums[left] + (prefix_sums[n] - prefix_sums[right - 1]));
+		}
+	}
+}
